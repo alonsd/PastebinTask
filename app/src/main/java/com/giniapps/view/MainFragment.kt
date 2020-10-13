@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -34,6 +35,10 @@ class MainFragment : Fragment() {
     private fun init() {
         mainAdapter = MainAdapter(requireContext())
         mainViewModel.getAllNumbers().observe(viewLifecycleOwner, { value ->
+            if (value == null) {
+                Toast.makeText(requireContext(), getString(R.string.main_fragment_fetch_error), Toast.LENGTH_SHORT).show()
+                return@observe
+            }
             binding.mainRecyclerview.adapter = mainAdapter
             binding.mainRecyclerview.setHasFixedSize(true)
             binding.mainRecyclerview.layoutManager = GridLayoutManager(requireContext(), 3)

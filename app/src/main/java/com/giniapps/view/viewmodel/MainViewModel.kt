@@ -11,9 +11,9 @@ import kotlinx.coroutines.withContext
 class MainViewModel(private val repository: MainRepository) : ViewModel() {
 
 
-    fun getAllNumbers(): LiveData<List<PastebinModelWithZeroIndicator>> {
+    fun getAllNumbers(): LiveData<List<PastebinModelWithZeroIndicator>?> {
 
-        val results = MutableLiveData<List<PastebinModelWithZeroIndicator>>()
+        val results = MutableLiveData<List<PastebinModelWithZeroIndicator>?>()
         viewModelScope.launch(Dispatchers.IO) {
             val allNumbers = repository.getAllNumbers()
             withContext(Dispatchers.Main) {

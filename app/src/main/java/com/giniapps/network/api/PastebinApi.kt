@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface PastebinApi {
 
     @GET("/raw/8wJzytQX")
-    suspend fun getNumbers() : Response<PastebinResponseModel>
+    suspend fun getNumbers() : PastebinResponseModel
 
 }

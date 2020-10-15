@@ -1,4 +1,4 @@
-package com.giniapps.view.adapter
+package com.giniapps.view.adapter.holder
 
 import androidx.recyclerview.widget.RecyclerView
 import com.giniapps.databinding.ViewholderOrangeBinding
